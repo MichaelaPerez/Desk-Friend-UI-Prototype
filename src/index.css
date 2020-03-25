@@ -92,6 +92,21 @@ div {
   padding: 0;
 }
 
+.bordered {
+  border: 2px solid #57F5E9;
+}
+
+.mediumWidth {
+  width: 75%
+}
+
+.centered {
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  display: inline-block;
+}
+
 #centered {
   align-items: center;
   align-content: center;
