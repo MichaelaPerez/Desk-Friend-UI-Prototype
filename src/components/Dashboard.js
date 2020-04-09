@@ -1,7 +1,7 @@
 import React from 'react';
 
 // buttons : array of {display name, unique id, function to execute when pressed}
-//const Dashboard = ({key, id, setAdminState, heading2, pageGreeting, buttons}) => {
+//const Dashboard = ({key, id, heading2, pageGreeting, buttons}) => {
 const Dashboard = (props) => {
     return (
       <div className="App">
