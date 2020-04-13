@@ -2,7 +2,7 @@ import React from 'react';
 
 class SearchPage extends React.Component {
   state = {
-    pageGreeting: this.props.initGreeting,
+    paragraph: this.props.paragraph,
     searchFieldValue: ""
   }
   
@@ -10,7 +10,7 @@ class SearchPage extends React.Component {
     e.preventDefault(); // By default, when the button in the form is clicked, the page is refreshed
     console.log('SearchPage : form submitted')
     this.setState({
-      pageGreeting: 'You have searched: ' + this.state.searchFieldValue
+      paragraph: 'You have searched: ' + this.state.searchFieldValue
     })
   }
   handleChange = (e) => {
@@ -22,7 +22,7 @@ class SearchPage extends React.Component {
       <div className="App">
         <h1>Desk Friend</h1>
         <h2 id={this.props.id}>{this.props.heading2}</h2>
-        <p>{this.state.pageGreeting}</p>
+        <p>{this.state.paragraph}</p>
         
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder={this.props.placeholder} value={this.state.searchFieldValue} onChange={this.handleChange} />
@@ -35,6 +35,17 @@ class SearchPage extends React.Component {
             )
           })
         }
+
+        <div id="buttonDiv" className='mediumWidth centered'>
+          <p id="centered">{this.props.navMsg}</p>
+          {
+            this.props.navButtons.map(button => {
+              return (
+                <button id="smallButton" onClick={() => {button.executeWhenClicked()}} key={button.id}>{button.name}</button>
+              )
+            })
+          }
+        </div>
       </div>
     );
   }

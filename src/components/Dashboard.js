@@ -1,13 +1,11 @@
 import React from 'react';
 
-// buttons : array of {display name, unique id, function to execute when pressed}
-//const Dashboard = ({key, id, heading2, pageGreeting, buttons}) => {
 const Dashboard = (props) => {
     return (
       <div className="App">
         <h1>Desk Friend</h1>
         <h2 id={props.id}>{props.heading2}</h2>
-        <p>{props.pageGreeting}</p>
+        <p>{props.paragraph}</p>
         
         {
           props.buttons.map(button => {
@@ -17,6 +15,16 @@ const Dashboard = (props) => {
           })
         }
 
+        <div id="buttonDiv" className='mediumWidth centered'>
+          <p id="centered">{props.navMsg}</p>
+          {
+            props.navButtons.map(button => {
+              return (
+                <button id="smallButton" onClick={() => {button.executeWhenClicked()}} key={button.id}>{button.name}</button>
+              )
+            })
+          }
+        </div>
       </div>
     )
 }
